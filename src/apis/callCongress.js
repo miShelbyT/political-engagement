@@ -6,6 +6,6 @@ export default axios.create({
   baseURL: 'https://api.propublica.org/congress/v1/117',
   headers: {
     key: KEY,
-    : 'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': '*',
   },
 })
