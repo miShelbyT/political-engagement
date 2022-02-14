@@ -1,6 +1,7 @@
-import axios from 'axios'
+// import axios from 'axios'
+
 import React from 'react'
-import callCongress from '../apis/callCongress'
+import instance from '../apis/callCongress'
 import SearchBar from './SearchBar'
 
 class App extends React.Component {
@@ -11,14 +12,12 @@ class App extends React.Component {
     selectedRep: null,
   }
   componentDidMount() {
-    callCongress.get('/senate/members.json', {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
-    })
+    instance.get('/senate/members.json')
     .then(res => {
-      console.log(res)
+      console.log(res.data.results[0].members[0].last_name)
 
+    }).catch(err => {
+      console.log(err)
     })
   }
   // onTermSubmit = async (term) => {
