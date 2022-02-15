@@ -1,22 +1,13 @@
-// import axios from 'axios'
-
 import { useState, useEffect } from 'react'
 import instance from '../apis/callCongress'
 import SearchBar from './SearchBar'
-
-///Users/michelletalbert/Development/code/call-congress/apis/callCongress.js
 
 function App () {
 
   const [senators, setSenators] = useState([])
   const [reps, setReps] = useState([])
 
-  // const [senatorSearchTerm, setSenatorSearchTerm] = useState("")
-  // const [repSearchTerm, setRepSearchTerm] = useState("")
-
-
   const [selectedSen, setSelectedSen] = useState([])
-  // console.log(selectedSen)
   const [selectedRep, setSelectedRep] = useState([])
   
   
