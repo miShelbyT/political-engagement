@@ -15,9 +15,9 @@ function App () {
   // const [repSearchTerm, setRepSearchTerm] = useState("")
 
 
-  const [selectedSen, setSelectedSen] = useState(null)
-  console.log(selectedSen)
-  const [selectedRep, setSelectedRep] = useState(null)
+  const [selectedSen, setSelectedSen] = useState([])
+  // console.log(selectedSen)
+  const [selectedRep, setSelectedRep] = useState([])
   
   
   useEffect(()=> {
@@ -48,8 +48,10 @@ function App () {
       <div>
         <h1>Call Congress</h1>
         <h2>(202) 224-3121</h2>
-        <SearchBar setSelectedSen={setSelectedSen} senators={senators}/>
-       {selectedSen ?  <a href={selectedSen[0].contact_form}>{selectedSen[0].first_name} {selectedSen[0].last_name}</a> : null}
+        <SearchBar setSelectedSen={setSelectedSen} senators={senators} setSelectedRep={setSelectedRep} reps={reps} selectedSen={selectedSen} selectedRep={selectedRep}/>
+        {console.log(selectedSen)}
+       {selectedSen.length ?  <h3>{selectedSen[0].short_title} {selectedSen[0].first_name} {selectedSen[0].last_name}</h3> : null}
+       {selectedRep.length ?  <h3>{selectedRep[0].short_title} {selectedRep[0].first_name} {selectedRep[0].last_name}</h3> : null}
       </div>
     )
   }
