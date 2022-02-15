@@ -11,8 +11,8 @@ function App () {
   const [senators, setSenators] = useState([])
   const [reps, setReps] = useState([])
 
-  const [senatorSearchTerm, setSenatorSearchTerm] = useState("")
-  const [repSearchTerm, setRepSearchTerm] = useState("")
+  // const [senatorSearchTerm, setSenatorSearchTerm] = useState("")
+  // const [repSearchTerm, setRepSearchTerm] = useState("")
 
 
   const [selectedSen, setSelectedSen] = useState(null)
@@ -48,7 +48,7 @@ function App () {
       <div>
         <h1>Call Congress</h1>
         <h2>(202) 224-3121</h2>
-        <SearchBar searchTerm={senatorSearchTerm} setSearchTerm={setSenatorSearchTerm} setSelectedRep={setSelectedSen} repsList={senators}/>
+        <SearchBar setSelectedSen={setSelectedSen} senators={senators}/>
        {selectedSen ?  <a href={selectedSen[0].contact_form}>{selectedSen[0].first_name} {selectedSen[0].last_name}</a> : null}
       </div>
     )

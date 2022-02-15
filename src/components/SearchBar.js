@@ -1,15 +1,16 @@
+import { useState } from 'react'
 
-
-function SearchBar ({ searchTerm, setSearchTerm, setSelectedRep, repsList }) {
+function SearchBar ({ setSelectedSen, senators }) {
   
-
+const [searchTerm, setSearchTerm] = useState("")
   // onInputChange = (event) => {
   //   this.setState({ term: event.target.value })
   // }
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    setSelectedRep(repsList.filter(rep => rep.last_name.toLowerCase() === searchTerm.toLowerCase()))
+    setSelectedSen(senators.filter(rep => rep.last_name.toLowerCase() === searchTerm.toLowerCase()))
+    setSearchTerm("")
   }
 
   
