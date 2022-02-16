@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-function SearchBar ({ setSelectedSen, senators, setSelectedRep, reps, selectedSen, selectedRep }) {
+function SearchBar ({ setSelectedSen, senators, setSelectedRep, reps, selectedSen, selectedRep, param }) {
   
 const [searchTerm, setSearchTerm] = useState("")
   // onInputChange = (event) => {
@@ -9,10 +10,9 @@ const [searchTerm, setSearchTerm] = useState("")
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    setSelectedSen(senators.filter(rep => rep.last_name.toLowerCase() === searchTerm.toLowerCase()))
+    setSelectedSen(senators.filter(rep => rep[param].toLowerCase() === searchTerm.toLowerCase()))
     if(!selectedSen.length){
-      setSelectedRep(reps.filter(rep => rep.last_name.toLowerCase() === searchTerm.toLowerCase()))
-      console.log(selectedRep, searchTerm)
+      setSelectedRep(reps.filter(rep => rep[param].toLowerCase() === searchTerm.toLowerCase()))
     }
     
     setSearchTerm("")
@@ -28,6 +28,7 @@ const [searchTerm, setSearchTerm] = useState("")
               type="text"
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
+              placeholder="&#x1F50D;"
             />
           </div>
         </form>
