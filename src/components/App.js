@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import instance from '../apis/callCongress'
+import apiCall from '../apis/callCongress'
 import SearchBar from './SearchBar'
 import Header from './Header'
 
@@ -11,9 +11,10 @@ function App() {
   const [selectedRep, setSelectedRep] = useState([])
 
   useEffect(() => {
-    instance
+    apiCall
       .get('/senate/members.json')
       .then((res) => {
+        console.log(res.data.results)
         setSenators(res.data.results[0].members)
       })
       .catch((err) => {
@@ -22,9 +23,10 @@ function App() {
   }, [])
 
   useEffect(() => {
-    instance
+    apiCall
       .get('/house/members.json')
       .then((res) => {
+        console.log(res.data.results[0])
         setReps(res.data.results[0].members)
       })
       .catch((err) => {
@@ -36,7 +38,7 @@ function App() {
   //   const response = await callCongress.get('/senate/members.json')
   //   .then
   // }
-
+console.log(selectedSen, selectedRep)
   return (
     <div>
       <Header
@@ -53,6 +55,7 @@ function App() {
         param="last_name"
       />
       {selectedSen.length ? (
+        
         <h3>
           {selectedSen[0].short_title} {selectedSen[0].first_name}{' '}
           {selectedSen[0].last_name}
