@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function SearchBar ({ setSelectedSen, senators, setSelectedRep, reps, selectedSen, selectedRep, param }) {
   
@@ -30,6 +29,7 @@ const [searchTerm, setSearchTerm] = useState("")
               onChange={e => setSearchTerm(e.target.value)}
               placeholder="&#x1F50D;"
             />
+            <button className="ui red button">Search</button>
           </div>
         </form>
       </div>
