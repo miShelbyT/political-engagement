@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import instance from '../apis/callCongress'
 import SearchBar from './SearchBar'
+import Header from './Header'
 
 function App() {
   const [senators, setSenators] = useState([])
@@ -38,8 +39,7 @@ function App() {
 
   return (
     <div>
-      <h1>Call Congress</h1>
-      <h2>(202) 224-3121</h2>
+      <Header />
       <SearchBar
         setSelectedSen={setSelectedSen}
         senators={senators}
