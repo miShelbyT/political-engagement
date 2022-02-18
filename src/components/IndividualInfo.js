@@ -1,11 +1,13 @@
+import styled from "styled-components"
+
 function IndividualInfo({ selectedRep, selectedSen }) {
   console.log(selectedSen)
 
   return (
     <>
       {selectedSen.length ? (
-        <div>
-          <h3>
+        <Information>
+          <Name>
             {selectedSen[0].short_title} {selectedSen[0].first_name}{' '}
             {selectedSen[0].last_name}{' '}
             <span>
@@ -13,7 +15,7 @@ function IndividualInfo({ selectedRep, selectedSen }) {
                 ({selectedSen[0].party}) {selectedSen[0].state}
               </small>
             </span>
-          </h3>
+          </Name>
           <p>
             {selectedSen[0].leadership_role ? (
               <h4>{selectedSen[0].leadership_role}</h4>
@@ -67,13 +69,11 @@ function IndividualInfo({ selectedRep, selectedSen }) {
               <i aria-hidden="true" class="twitter link icon"></i>
             </a>
           </div>
-          social medias
-          <h5> </h5>
-        </div>
+        </Information>
       ) : null}
       {selectedRep.length ? (
-        <div>
-          <h3>
+        <Information>
+          <Name>
             {selectedRep[0].short_title} {selectedRep[0].first_name}{' '}
             {selectedRep[0].last_name}{' '}
             <span>
@@ -81,7 +81,7 @@ function IndividualInfo({ selectedRep, selectedSen }) {
                 ({selectedRep[0].party}) {selectedRep[0].state}
               </small>
             </span>
-          </h3>
+          </Name>
           <p>
             {selectedRep[0].leadership_role ? (
               <h4>{selectedRep[0].leadership_role}</h4>
@@ -135,12 +135,18 @@ function IndividualInfo({ selectedRep, selectedSen }) {
               <i aria-hidden="true" class="twitter link icon"></i>
             </a>
           </div>
-          social medias
-          <h5> </h5>
-        </div>
+        </Information>
       ) : null}
     </>
   )
 }
 
 export default IndividualInfo
+
+const Name = styled.h3`
+    font-size: 3em;
+`
+
+const Information = styled.div`
+    font-size: 1.5em
+`
