@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import apiCall from '../apis/callCongress'
 import SearchBar from './SearchBar'
 import Header from './Header'
+import IndividualInfo from './IndividualInfo'
+import styled from 'styled-components'
 
 function App() {
   const [renderSearchButton, setRenderSearchButton] = useState(true)
@@ -38,9 +40,9 @@ function App() {
   //   const response = await callCongress.get('/senate/members.json')
   //   .then
   // }
-console.log(selectedSen, selectedRep)
+  console.log(selectedSen, selectedRep)
   return (
-    <div>
+    <Page>
       <Header
         renderSearchButton={renderSearchButton}
         setRenderSearchButton={setRenderSearchButton}
@@ -54,21 +56,14 @@ console.log(selectedSen, selectedRep)
         selectedRep={selectedRep}
         param="last_name"
       />
-      {selectedSen.length ? (
-        
-        <h3>
-          {selectedSen[0].short_title} {selectedSen[0].first_name}{' '}
-          {selectedSen[0].last_name}
-        </h3>
-      ) : null}
-      {selectedRep.length ? (
-        <h3>
-          {selectedRep[0].short_title} {selectedRep[0].first_name}{' '}
-          {selectedRep[0].last_name}
-        </h3>
-      ) : null}
-    </div>
+      <IndividualInfo selectedRep={selectedRep} selectedSen={selectedSen} />
+      
+    </Page>
   )
 }
 
 export default App
+
+const Page = styled.div`
+  margin: 30px;
+`
