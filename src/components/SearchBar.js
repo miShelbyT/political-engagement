@@ -27,9 +27,9 @@ const [searchTerm, setSearchTerm] = useState("")
               type="text"
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
-              placeholder="&#x1F50D;"
+              placeholder="Search by last name"
             />
-            <button className="ui red button">Search</button>
+            <button className="ui button" style={{backgroundColor:"#B31942", color: 'white'}} > Submit </button>
           </div>
         </form>
       </div>

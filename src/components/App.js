@@ -2,13 +2,11 @@ import { useState, useEffect } from 'react'
 import instance from '../apis/callCongress'
 import SearchBar from './SearchBar'
 import Header from './Header'
-import { render } from '@testing-library/react'
 
 function App() {
-  const [renderSearchButton, setRenderSearchButton] = useState(false)
+  const [renderSearchButton, setRenderSearchButton] = useState(true)
   const [senators, setSenators] = useState([])
   const [reps, setReps] = useState([])
-
   const [selectedSen, setSelectedSen] = useState([])
   const [selectedRep, setSelectedRep] = useState([])
 
