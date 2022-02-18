@@ -66,5 +66,5 @@ function App() {
 export default App
 
 const Page = styled.div`
-  margin: 30px;
+  margin: 50px;
 `

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 function IndividualInfo({ selectedRep, selectedSen }) {
   console.log(selectedSen)
@@ -18,30 +18,26 @@ function IndividualInfo({ selectedRep, selectedSen }) {
           </Name>
           <p>
             {selectedSen[0].leadership_role ? (
-              <h4>{selectedSen[0].leadership_role}</h4>
+              <h1>{selectedSen[0].leadership_role}</h1>
             ) : null}
           </p>
-          <p>Phone: {selectedSen[0].phone}</p>
+          <b>Phone: {selectedSen[0].phone}</b><br />
           <p>
-            Contact Form:{' '}
-            <a href={selectedSen[0].contact_form} target="_blank">
+            <b>Contact Form: </b>
+            <Link href={selectedSen[0].contact_form} target="_blank">
               Email {selectedSen[0].short_title} {selectedSen[0].first_name}{' '}
               {selectedSen[0].last_name}{' '}
-            </a>
+            </Link>
           </p>
-          <b>Mailing Address:</b>
+          <b>Mailing Address:</b><br />
+          <b>{selectedSen[0].short_title} {selectedSen[0].first_name} {selectedSen[0].last_name}</b>
           <address>
-            {' '}
-            {selectedSen[0].short_title} {selectedSen[0].first_name}{' '}
-            {selectedSen[0].last_name}
-            <br />
-            {selectedSen[0].office}
-            <br />
+            {selectedSen[0].office}<br />
             Washington DC, 20510
           </address>
-          <a href={selectedSen[0].url} target="_blank">
-            Website
-          </a>
+          <br />
+          <Link href={selectedSen[0].url} target="_blank">
+Visit           </Link>
           <br />
           <h3>
             <b>Voting History:</b>
@@ -58,16 +54,19 @@ function IndividualInfo({ selectedRep, selectedSen }) {
           </p>
           <br />
           <div>
-            <a href={`https://facebook.com/${selectedSen[0].facebook_account}`}>
-              <i aria-hidden="true" class="facebook link icon">
+            <Link href={`https://facebook.com/${selectedSen[0].facebook_account}`}>
+              <i aria-hidden="true" class="facebook huge link icon">
                 {' '}
               </i>{' '}
-            </a>
-
-            <a href={`https://twitter.com/${selectedSen[0].twitter_account}`}>
+            </Link>
+            <Link href={`https://twitter.com/${selectedSen[0].twitter_account}`}>
               {' '}
-              <i aria-hidden="true" class="twitter link icon"></i>
-            </a>
+              <i aria-hidden="true" class="twitter huge link icon"></i>
+            </Link>
+            <Link href={`https://youtube.com/${selectedSen[0].youtube_account}`}>
+              {' '}
+              <i aria-hidden="true" class="youtube square huge link icon"></i>
+            </Link>
           </div>
         </Information>
       ) : null}
@@ -90,10 +89,10 @@ function IndividualInfo({ selectedRep, selectedSen }) {
           <p>Phone: {selectedRep[0].phone}</p>
           <p>
             Contact Form:{' '}
-            <a href={selectedRep[0].contact_form} target="_blank">
+            <Link href={selectedRep[0].contact_form} target="_blank">
               Email {selectedRep[0].short_title} {selectedRep[0].first_name}{' '}
               {selectedRep[0].last_name}{' '}
-            </a>
+            </Link>
           </p>
           <b>Mailing Address:</b>
           <address>
@@ -105,9 +104,10 @@ function IndividualInfo({ selectedRep, selectedSen }) {
             <br />
             Washington DC, 20510
           </address>
-          <a href={selectedRep[0].url} target="_blank">
-            Website
-          </a>
+          <br />
+          <Link href={selectedRep[0].url} target="_blank">
+            Visit your Congressperson's website
+          </Link>
           <br />
           <h3>
             <b>Voting History:</b>
@@ -124,16 +124,16 @@ function IndividualInfo({ selectedRep, selectedSen }) {
           </p>
           <br />
           <div>
-            <a href={`https://facebook.com/${selectedRep[0].facebook_account}`}>
+            <Link href={`https://facebook.com/${selectedRep[0].facebook_account}`}>
               <i aria-hidden="true" class="facebook link icon">
                 {' '}
               </i>{' '}
-            </a>
+            </Link>
 
-            <a href={`https://twitter.com/${selectedRep[0].twitter_account}`}>
+            <Link href={`https://twitter.com/${selectedRep[0].twitter_account}`}>
               {' '}
               <i aria-hidden="true" class="twitter link icon"></i>
-            </a>
+            </Link>
           </div>
         </Information>
       ) : null}
@@ -144,9 +144,15 @@ function IndividualInfo({ selectedRep, selectedSen }) {
 export default IndividualInfo
 
 const Name = styled.h3`
-    font-size: 3em;
+  font-size: 3em;
 `
 
 const Information = styled.div`
-    font-size: 1.5em
+  font-size: 1.5em;
+`
+const Link = styled.a`
+    color: #b31942;
+    &:hover {
+        color: #ffffff
+    }
 `
