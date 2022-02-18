@@ -3,6 +3,7 @@ import apiCall from '../apis/callCongress'
 import SearchBar from './SearchBar'
 import Header from './Header'
 import IndividualInfo from './IndividualInfo'
+import SearchContainer from './SearchContainer'
 import styled from 'styled-components'
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
         renderSearchButton={renderSearchButton}
         setRenderSearchButton={setRenderSearchButton}
       />
-      <SearchBar
+      <SearchContainer
         setSelectedSen={setSelectedSen}
         senators={senators}
         setSelectedRep={setSelectedRep}
