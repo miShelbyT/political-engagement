@@ -1,18 +1,22 @@
 import { useState, useEffect } from 'react'
-import instance from '../apis/callCongress'
+import apiCall from '../apis/callCongress'
 import SearchBar from './SearchBar'
+import Header from './Header'
+import IndividualInfo from './IndividualInfo'
+import styled from 'styled-components'
 
 function App() {
+  const [renderSearchButton, setRenderSearchButton] = useState(true)
   const [senators, setSenators] = useState([])
   const [reps, setReps] = useState([])
-
   const [selectedSen, setSelectedSen] = useState([])
   const [selectedRep, setSelectedRep] = useState([])
 
   useEffect(() => {
-    instance
+    apiCall
       .get('/senate/members.json')
       .then((res) => {
+        console.log(res.data.results)
         setSenators(res.data.results[0].members)
       })
       .catch((err) => {
@@ -21,9 +25,10 @@ function App() {
   }, [])
 
   useEffect(() => {
-    instance
+    apiCall
       .get('/house/members.json')
       .then((res) => {
+        console.log(res.data.results[0])
         setReps(res.data.results[0].members)
       })
       .catch((err) => {
@@ -35,11 +40,13 @@ function App() {
   //   const response = await callCongress.get('/senate/members.json')
   //   .then
   // }
-
+  console.log(selectedSen, selectedRep)
   return (
-    <div>
-      <h1>Call Congress</h1>
-      <h2>(202) 224-3121</h2>
+    <Page>
+      <Header
+        renderSearchButton={renderSearchButton}
+        setRenderSearchButton={setRenderSearchButton}
+      />
       <SearchBar
         setSelectedSen={setSelectedSen}
         senators={senators}
@@ -49,20 +56,14 @@ function App() {
         selectedRep={selectedRep}
         param="last_name"
       />
-      {selectedSen.length ? (
-        <h3>
-          {selectedSen[0].short_title} {selectedSen[0].first_name}{' '}
-          {selectedSen[0].last_name}
-        </h3>
-      ) : null}
-      {selectedRep.length ? (
-        <h3>
-          {selectedRep[0].short_title} {selectedRep[0].first_name}{' '}
-          {selectedRep[0].last_name}
-        </h3>
-      ) : null}
-    </div>
+      <IndividualInfo selectedRep={selectedRep} selectedSen={selectedSen} />
+      
+    </Page>
   )
 }
 
 export default App
+
+const Page = styled.div`
+  margin: 30px;
+`
