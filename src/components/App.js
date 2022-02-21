@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import apiCall from '../apis/callCongress'
-import SearchBar from './SearchBar'
 import Header from './Header'
 import IndividualInfo from './IndividualInfo'
 import SearchContainer from './SearchContainer'
