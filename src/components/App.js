@@ -17,7 +17,6 @@ function App() {
     apiCall
       .get('/senate/members.json')
       .then((res) => {
-        console.log(res.data.results)
         setSenators(res.data.results[0].members)
       })
       .catch((err) => {
@@ -29,7 +28,6 @@ function App() {
     apiCall
       .get('/house/members.json')
       .then((res) => {
-        console.log(res.data.results[0])
         setReps(res.data.results[0].members)
       })
       .catch((err) => {
@@ -48,6 +46,7 @@ function App() {
         renderSearchButton={renderSearchButton}
         setRenderSearchButton={setRenderSearchButton}
       />
+      {senators && reps  ? <>
       <SearchContainer
         setSelectedSen={setSelectedSen}
         senators={senators}
@@ -57,7 +56,10 @@ function App() {
         selectedRep={selectedRep}
         param="last_name"
       />
+      </> : <div>Please hold....</div> }
+      
       <IndividualInfo selectedRep={selectedRep} selectedSen={selectedSen} />
+      
       
     </Page>
   )

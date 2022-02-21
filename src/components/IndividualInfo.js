@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 function IndividualInfo({ selectedRep, selectedSen }) {
-  console.log(selectedSen)
 
   return (
     <>
@@ -16,11 +15,11 @@ function IndividualInfo({ selectedRep, selectedSen }) {
               </small>
             </span>
           </Name>
-          <p>
+          
             {selectedSen[0].leadership_role ? (
-              <h1>{selectedSen[0].leadership_role}</h1>
+              <h3>{selectedSen[0].leadership_role}</h3>
             ) : null}
-          </p>
+          
           <b>Phone: {selectedSen[0].phone}</b><br />
           <p>
             <b>Contact Form: </b>
@@ -55,17 +54,17 @@ Visit           </Link>
           <br />
           <div>
             <Link href={`https://facebook.com/${selectedSen[0].facebook_account}`}>
-              <i aria-hidden="true" class="facebook huge link icon">
+              <i aria-hidden="true" className="facebook huge link icon">
                 {' '}
               </i>{' '}
             </Link>
             <Link href={`https://twitter.com/${selectedSen[0].twitter_account}`}>
               {' '}
-              <i aria-hidden="true" class="twitter huge link icon"></i>
+              <i aria-hidden="true" className="twitter huge link icon"></i>
             </Link>
             <Link href={`https://youtube.com/${selectedSen[0].youtube_account}`}>
               {' '}
-              <i aria-hidden="true" class="youtube square huge link icon"></i>
+              <i aria-hidden="true" className="youtube square huge link icon"></i>
             </Link>
           </div>
         </Information>
@@ -81,11 +80,11 @@ Visit           </Link>
               </small>
             </span>
           </Name>
-          <p>
+          
             {selectedRep[0].leadership_role ? (
               <h4>{selectedRep[0].leadership_role}</h4>
             ) : null}
-          </p>
+          
           <p>Phone: {selectedRep[0].phone}</p>
           <p>
             Contact Form:{' '}
@@ -125,14 +124,14 @@ Visit           </Link>
           <br />
           <div>
             <Link href={`https://facebook.com/${selectedRep[0].facebook_account}`}>
-              <i aria-hidden="true" class="facebook link icon">
+              <i aria-hidden="true" className="facebook link icon">
                 {' '}
               </i>{' '}
             </Link>
 
             <Link href={`https://twitter.com/${selectedRep[0].twitter_account}`}>
               {' '}
-              <i aria-hidden="true" class="twitter link icon"></i>
+              <i aria-hidden="true" className="twitter link icon"></i>
             </Link>
           </div>
         </Information>
@@ -151,8 +150,9 @@ const Information = styled.div`
   font-size: 1.5em;
 `
 const Link = styled.a`
-    color: #b31942;
+    color: #FFF;
     &:hover {
-        color: #ffffff
+      color: #0A3161;
+        background: linear-gradient(to right, #b31942, #FFF, #b31942);
     }
 `

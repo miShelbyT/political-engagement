@@ -36,8 +36,6 @@ function SearchBar({
       }
     }
       
-      console.log(senators)
-      console.log(selectedSen, selectedRep)
     }
     setSearchTerm('')
   }
