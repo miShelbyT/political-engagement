@@ -15,28 +15,20 @@ function SearchBar({
   // }
 
   const onFormSubmit = (event) => {
-  
     event.preventDefault()
-    if (senators && reps) {
-      setSelectedSen(
-      senators.filter(
-        (sen) => sen[param].toLowerCase() === searchTerm.toLowerCase()
+
+    const senator = senators.filter(sen => sen[param].toLowerCase() === searchTerm.toLowerCase())
+    let representative;
+
+    if(senator[0])setSelectedSen(senator)
+    else {
+      representative = reps.filter(
+        (rep) => rep[param].toLowerCase() === searchTerm.toLowerCase()
       )
-    )
-    if (!selectedSen.length) {
-      setSelectedRep(
-        reps.filter(
-          (rep) => rep[param].toLowerCase() === searchTerm.toLowerCase()
-        )
-      )
-      if (selectedRep === []) {
-        window.alert(
-          'No match ☹️ \nCheck your spelling and try again! \n(or search by state or zipcode instead!)'
-        )
-      }
     }
-      
-    }
+    if(representative[0]) setSelectedRep(representative)
+    else window.alert('No match ☹️ \nCheck your spelling and try again! \n(or search by state or zipcode instead!)')
+
     setSearchTerm('')
   }
 

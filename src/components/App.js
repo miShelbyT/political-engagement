@@ -39,7 +39,7 @@ function App() {
   //   const response = await callCongress.get('/senate/members.json')
   //   .then
   // }
-  console.log(selectedSen, selectedRep)
+  console.log("selectedSen", selectedSen,"selectedRep", selectedRep)
   return (
     <Page>
       <Header
