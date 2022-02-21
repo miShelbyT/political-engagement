@@ -35,6 +35,14 @@ function App() {
       })
   }, [])
 
+  // function renderIndivResults() {
+  //   if(selectedSen) {
+  //     return <IndividualInfo selectedCon={selectedSen} />
+  //   } else if(selectedRep) {
+  //     return <IndividualInfo selectedCon={selectedRep} />
+  //   }
+  // }
+
   // onTermSubmit = async (term) => {
   //   const response = await callCongress.get('/senate/members.json')
   //   .then
@@ -57,10 +65,9 @@ function App() {
         param="last_name"
       />
       </> : <div>Please hold....</div> }
-      
-      <IndividualInfo selectedRep={selectedRep} selectedSen={selectedSen} />
-      
-      
+
+      <IndividualInfo selectedCon={selectedSen ? selectedSen : selectedRep}/>
+ 
     </Page>
   )
 }

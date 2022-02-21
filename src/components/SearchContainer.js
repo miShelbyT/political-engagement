@@ -1,4 +1,5 @@
 import SearchBar from './SearchBar'
+import DropDownSearch from './DropDownSearch'
 
 function SearchContainer({
     setSelectedSen,
@@ -20,6 +21,7 @@ function SearchContainer({
         selectedRep={selectedRep}
         param="last_name"
       />
+      <DropDownSearch />
     </>
   )
 }
