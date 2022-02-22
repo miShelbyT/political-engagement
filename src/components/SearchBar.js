@@ -15,30 +15,21 @@ function SearchBar({
   // }
 
   const onFormSubmit = (event) => {
-  
     event.preventDefault()
-    if (senators && reps) {
-      setSelectedSen(
-      senators.filter(
-        (sen) => sen[param].toLowerCase() === searchTerm.toLowerCase()
-      )
-    )
-    if (!selectedSen.length) {
-      setSelectedRep(
-        reps.filter(
-          (rep) => rep[param].toLowerCase() === searchTerm.toLowerCase()
-        )
-      )
-      if (selectedRep === []) {
-        window.alert(
-          'No match ☹️ \nCheck your spelling and try again! \n(or search by state or zipcode instead!)'
-        )
-      }
-    }
-      
-    }
+
+    const senator = senators.filter(sen => sen[param].toLowerCase() === searchTerm.toLowerCase())
+
+    if(senator !== [])setSelectedSen(senator)
+    
+    const representative = reps.filter(rep => rep[param].toLowerCase() === searchTerm.toLowerCase())
+    if(representative !== []) setSelectedRep(representative)
+    // NOTE: window alert logic needs fixing!!!!!!!!!
+    if(senator === [] && representative === []) window.alert('No match ☹️ \nCheck your spelling and try again! \n(or search by state or zipcode instead!)')
+
     setSearchTerm('')
   }
+
+  console.log("sen array", selectedSen, "rep array", selectedRep)
 
   return (
     <div className="search-bar ui segment">

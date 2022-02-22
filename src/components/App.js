@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import apiCall from '../apis/callCongress'
-import SearchBar from './SearchBar'
 import Header from './Header'
 import IndividualInfo from './IndividualInfo'
 import SearchContainer from './SearchContainer'
@@ -35,11 +34,29 @@ function App() {
       })
   }, [])
 
+  // function renderIndivResults() {
+  //   if(selectedSen) {
+  //     return <IndividualInfo selectedCon={selectedSen} />
+  //   } else if(selectedRep) {
+  //     return <IndividualInfo selectedCon={selectedRep} />
+  //   }
+  // }
+
   // onTermSubmit = async (term) => {
   //   const response = await callCongress.get('/senate/members.json')
   //   .then
   // }
-  console.log(selectedSen, selectedRep)
+function setCon() {
+  let selectedCon;
+  if(selectedSen !== []) {
+    selectedCon = selectedSen
+  } if(selectedRep !== []) {
+    selectedCon = selectedRep
+  }
+  return selectedCon
+}
+
+  console.log("selectedSen", selectedSen,"selectedRep", selectedRep)
   return (
     <Page>
       <Header
@@ -57,10 +74,9 @@ function App() {
         param="last_name"
       />
       </> : <div>Please hold....</div> }
-      
-      <IndividualInfo selectedRep={selectedRep} selectedSen={selectedSen} />
-      
-      
+
+      {selectedSen.length || selectedRep.length ? <IndividualInfo selectedCon={setCon()}/> : null }
+ 
     </Page>
   )
 }
