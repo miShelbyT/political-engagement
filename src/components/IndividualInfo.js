@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 function IndividualInfo({ selectedCon }) {
+  console.log(selectedCon[0])
   return (
     <>
       <Information>

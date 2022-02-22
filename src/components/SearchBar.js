@@ -18,19 +18,18 @@ function SearchBar({
     event.preventDefault()
 
     const senator = senators.filter(sen => sen[param].toLowerCase() === searchTerm.toLowerCase())
-    let representative;
 
-    if(senator[0])setSelectedSen(senator)
-    else {
-      representative = reps.filter(
-        (rep) => rep[param].toLowerCase() === searchTerm.toLowerCase()
-      )
-    }
-    if(representative[0]) setSelectedRep(representative)
-    else window.alert('No match ☹️ \nCheck your spelling and try again! \n(or search by state or zipcode instead!)')
+    if(senator !== [])setSelectedSen(senator)
+    
+    const representative = reps.filter(rep => rep[param].toLowerCase() === searchTerm.toLowerCase())
+    if(representative !== []) setSelectedRep(representative)
+    // NOTE: window alert logic needs fixing!!!!!!!!!
+    if(senator === [] && representative === []) window.alert('No match ☹️ \nCheck your spelling and try again! \n(or search by state or zipcode instead!)')
 
     setSearchTerm('')
   }
+
+  console.log("sen array", selectedSen, "rep array", selectedRep)
 
   return (
     <div className="search-bar ui segment">

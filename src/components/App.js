@@ -46,6 +46,16 @@ function App() {
   //   const response = await callCongress.get('/senate/members.json')
   //   .then
   // }
+function setCon() {
+  let selectedCon;
+  if(selectedSen !== []) {
+    selectedCon = selectedSen
+  } if(selectedRep !== []) {
+    selectedCon = selectedRep
+  }
+  return selectedCon
+}
+
   console.log("selectedSen", selectedSen,"selectedRep", selectedRep)
   return (
     <Page>
@@ -65,7 +75,7 @@ function App() {
       />
       </> : <div>Please hold....</div> }
 
-      <IndividualInfo selectedCon={selectedSen ? selectedSen : selectedRep}/>
+      {selectedSen.length || selectedRep.length ? <IndividualInfo selectedCon={setCon()}/> : null }
  
     </Page>
   )
