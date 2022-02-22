@@ -42,7 +42,7 @@ function SearchBar({
           />
           <button
             className="ui button"
-            style={{ backgroundColor: '#B31942', color: 'white' }}
+            style={{ backgroundColor: '#B31942', color: 'white', margin: "7px 0px" }}
           >
             {' '}
             Submit{' '}
