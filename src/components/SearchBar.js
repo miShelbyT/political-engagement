@@ -29,8 +29,6 @@ function SearchBar({
     setSearchTerm('')
   }
 
-  console.log("sen array", selectedSen, "rep array", selectedRep)
-
   return (
     <div className="search-bar ui segment">
       <form className="ui form" onSubmit={onFormSubmit}>

@@ -56,7 +56,6 @@ function setCon() {
   return selectedCon
 }
 
-  console.log("selectedSen", selectedSen,"selectedRep", selectedRep)
   return (
     <Page>
       <Header
