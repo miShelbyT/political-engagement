@@ -47,13 +47,14 @@ function App() {
   //   .then
   // }
 function setCon() {
-  let selectedCon;
-  if(selectedSen !== []) {
-    selectedCon = selectedSen
-  } if(selectedRep !== []) {
-    selectedCon = selectedRep
+  // console.log(selectedSen, selectedRep)
+  if(selectedSen.length !== 0) {
+    console.log(selectedSen)
+    return selectedSen
+  } else if(selectedRep.length !== 0) {
+    console.log(selectedRep)
+    return selectedRep
   }
-  return selectedCon
 }
 
   return (
