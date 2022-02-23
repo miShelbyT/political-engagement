@@ -9,7 +9,7 @@ function DropDownSearch() {
   const [location, setLocation] = useState('')
   const states = statesAndTerritories.states
 
-  // console.log(location)
+  
 
   function renderStates() {
     
@@ -27,14 +27,13 @@ function DropDownSearch() {
         aria-expanded="false"
         className="ui fluid search selection dropdown"
         tabIndex="0"
-        style={{overflow: "hidden !important", maxHeight: '100 px'}}
       >
-        <label style={{overflow: "hidden !important", maxHeight: '100 px'}}>
+        <label style={{overflow: "hidden !important", height: 50, maxHeight: 50}}>
           <select
             aria-autocomplete="list"
             autoComplete="off"
             className="search"
-            style={{color: "#B31942", overflow: "hidden !important", maxHeight: 100}}
+            style={{color: "#B31942"}}
             tabIndex="0"
             value={location}
             onChange={(event) => setLocation(event.target.value)}
