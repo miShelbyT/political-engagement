@@ -1,5 +1,6 @@
 import SearchBar from './SearchBar'
 import DropDownSearch from './DropDownSearch'
+import styled from 'styled-components'
 
 function SearchContainer({
     setSelectedSen,
@@ -11,7 +12,7 @@ function SearchContainer({
     param,
   }) {
   return (
-    <>
+    <Container>
       <SearchBar
         setSelectedSen={setSelectedSen}
         senators={senators}
@@ -22,7 +23,15 @@ function SearchContainer({
         param="last_name"
       />
       <DropDownSearch />
-    </>
+      <SearchBar />
+    </Container>
   )
 }
 export default SearchContainer
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+`
