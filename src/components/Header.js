@@ -9,7 +9,7 @@ function Header({setRenderSearchButton, renderSearchButton}) {
     <>
       <Title>CALL CONGRESS</Title>
       <Number>(202) 224-3121</Number>
-      {renderSearchButton ? <button className="ui button" style={{backgroundColor:'#B31942', color:'white'}} onClick={clickHandler}>Start a new Search &#x1F50D;</button> : null} 
+      {renderSearchButton ? <button className="ui button" style={{backgroundColor:'#B31942', color:'white', margin: "7px 0px"}} onClick={clickHandler}>Start a new Search &#x1F50D;</button> : null} 
         {/* // button boolean state --> search is submitted button is true, when this button is clicked button is false */}
     </>
   )
