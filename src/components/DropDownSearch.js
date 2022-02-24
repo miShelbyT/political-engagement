@@ -34,6 +34,11 @@ function DropDownSearch() {
             onChange={(value) => setLocation(value[0].abbreviation)}
             dropdownHeight="300px"
             color="#b31942"
+            style={{
+              fontSize: 18,
+              color: 'black',
+              margin: '7px 0px',
+            }}
           />
         </label>
         <button
