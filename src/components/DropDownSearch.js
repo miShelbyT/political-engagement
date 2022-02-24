@@ -23,20 +23,16 @@ function DropDownSearch() {
   return (
     <form className="ui form" >
       <div
-        role="listbox"
-        aria-expanded="false"
         className="ui fluid search selection dropdown"
-        tabIndex="0"
       >
         <label style={{overflow: "hidden !important", height: 50, maxHeight: 50}}>
           <select
-            aria-autocomplete="list"
-            autoComplete="off"
             className="search"
             style={{color: "#B31942"}}
             tabIndex="0"
             value={location}
             onChange={(event) => setLocation(event.target.value)}
+            // size="5"
           >
             <option value="Select State or Territory"
               
