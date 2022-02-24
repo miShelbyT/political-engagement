@@ -8,17 +8,16 @@ function DropDownSearch() {
   const [location, setLocation] = useState('')
   const options = statesAndTerritories.states
 
+  const selectStyles = {
+    fontSize: 16,
+    color: "#0A3161",
+    borderRadius: 4,
+    padding: '10px 6px',
+    fontFamily: "Lato,'Helvetica Neue',Arial,Helvetica,sans-serif"
+  }
+
   console.log(location)
 
-  
-  // function renderStates() {
-
-  //   return states.map((state) => (
-  //     <option key={state.abbreviation} value={state.abbreviation}>
-  //       {state.name}
-  //     </option>
-  //   ))
-  // }
 
   return (
     <form>
@@ -27,20 +26,16 @@ function DropDownSearch() {
           <Select
             options={options}
             placeholder="Select a State or Territory"
-            // addPlaceholder="Select a State or Territory"
             labelField="name"
             searchBy="name"
             valueField="abbreviation"
             searchable="true"
             closeOnSelect="true"
+            closeOnScroll="true"
             onChange={(value) => setLocation(value[0].abbreviation)}
-            dropdownHeight="300px"
+            dropdownHeight="400px"
             color="#b31942"
-            style={{
-              fontSize: 18,
-              color: 'black',
-              margin: '7px 0px',
-            }}
+            style={selectStyles}
           />
         </label>
         <button
