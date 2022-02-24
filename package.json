@@ -13,6 +13,7 @@
     "axios": "^0.26.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-dropdown-select": "^4.8.3",
     "react-scripts": "5.0.0",
     "styled-components": "^5.3.3",
     "usa-states": "^0.0.5",
