@@ -27,10 +27,12 @@ function DropDownSearch() {
           <Select
             options={options}
             placeholder="Select a State or Territory"
+            // addPlaceholder="Select a State or Territory"
             labelField="name"
-            searchBy="abbreviation"
+            searchBy="name"
             valueField="abbreviation"
             searchable="true"
+            closeOnSelect="true"
             onChange={(value) => setLocation(value[0].abbreviation)}
             dropdownHeight="300px"
             color="#b31942"
