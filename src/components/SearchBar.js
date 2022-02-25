@@ -1,38 +1,15 @@
-import { useState } from 'react'
 
-function SearchBar({
-  setSelectedSen,
-  senators,
-  setSelectedRep,
-  reps,
-  selectedSen,
-  selectedRep,
-  param,
-}) {
-  const [searchTerm, setSearchTerm] = useState('')
+
+function SearchBar({ searchTerm, setSearchTerm, onFormSubmit }) {
+  
   // onInputChange = (event) => {
   //   this.setState({ term: event.target.value })
   // }
 
-  const onFormSubmit = (event) => {
-    event.preventDefault()
-
-    const senator = senators.filter(sen => sen[param].toLowerCase() === searchTerm.toLowerCase())
-    const representative = reps.filter(rep => rep[param].toLowerCase() === searchTerm.toLowerCase())
-
-    if(senator !== [])setSelectedSen(senator)
-    if(representative !== []) setSelectedRep(representative)
-    
-    if(senator.length === 0 && representative.length === 0) {
-      window.alert('No match ☹️ \nCheck your spelling and try again! \n(or search by state or zipcode instead!)')
-    }
-   // NOTE: i think i fixed window alert logic!!!!!!!!!
-    setSearchTerm('')
-  }
-
+  
   return (
     <div className="search-bar ui segment">
-      <form className="ui form" onSubmit={onFormSubmit}>
+      <form className="ui form" onSubmit={(e) => onFormSubmit(e, "last_name")}>
         <div className="field">
           <label>Find My Congress People:</label>
           <input

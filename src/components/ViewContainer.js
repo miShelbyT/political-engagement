@@ -12,10 +12,10 @@ function ViewContainer({ senators, reps }) {
   function setCon() {
     // console.log(selectedSen, selectedRep)
     if(selectedSen.length !== 0) {
-      console.log(selectedSen)
+      // console.log(selectedSen)
       return selectedSen
     } else if(selectedRep.length !== 0) {
-      console.log(selectedRep)
+      // console.log(selectedRep)
       return selectedRep
     }
   }
@@ -30,7 +30,6 @@ function ViewContainer({ senators, reps }) {
         reps={reps}
         selectedSen={selectedSen}
         selectedRep={selectedRep}
-        param="last_name"
       />
       </> : <div>Please hold....</div> }
 
