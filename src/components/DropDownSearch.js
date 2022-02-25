@@ -1,11 +1,16 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import Select from 'react-dropdown-select'
 
 function DropDownSearch({ setSearchTerm, onFormSubmit }) {
   const UsaStates = require('usa-states').UsaStates
-  const statesAndTerritories = new UsaStates({ includeTerritories: true })
+  const statesAndTerritories = new UsaStates()
 
-  const options = statesAndTerritories.states
+  const options = [...statesAndTerritories.states, {name: 'Puerto Rico', abbreviation: 'PR'}, 
+  {name: 'American Samoa', abbreviation: 'AS'}, 
+  {name: 'Guam', abbreviation: 'GU'}, 
+  {name: 'Northern Mariana Islands', abbreviation: 'MP'}, 
+  {name: 'Virgin Islands', abbreviation: 'VI'}
+].sort((a,b) => a.name - b.name)
 
   const selectStyles = {
     fontSize: 16,
@@ -15,7 +20,7 @@ function DropDownSearch({ setSearchTerm, onFormSubmit }) {
     fontFamily: "Lato,'Helvetica Neue',Arial,Helvetica,sans-serif"
   }
 
-  // console.log(location)
+  console.log(options)
 
 
   return (
