@@ -4,6 +4,8 @@ import SearchBar from './SearchBar'
 import DropDownSearch from './DropDownSearch'
 import styled from 'styled-components'
 
+import flag from '../images/flag.png'
+
 function SearchContainer({ setSelectedSen, senators, setSelectedRep, reps, selectedSen, selectedRep }) {
 
     const [searchTerm, setSearchTerm] = useState('')
@@ -32,18 +34,14 @@ function SearchContainer({ setSelectedSen, senators, setSelectedRep, reps, selec
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         onFormSubmit={onFormSubmit}
-        // setSelectedSen={setSelectedSen}
-        // senators={senators}
-        // setSelectedRep={setSelectedRep}
-        // reps={reps}
-        // selectedSen={selectedSen}
-        // selectedRep={selectedRep}
+        param="last_name"
+        searchBy="last name"
       />
       <DropDownSearch 
         setSearchTerm={setSearchTerm}
         onFormSubmit={onFormSubmit}
       />
-      <SearchBar />
+      <SearchBar searchBy="zip code"/>
     </Container>
   )
 }
@@ -52,6 +50,10 @@ export default SearchContainer
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-evenly;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.52),rgba(0, 0, 0, 0.5)), url(${flag});
+  border-radius: 7px;
+  padding: 20px;
 `

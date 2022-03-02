@@ -20,8 +20,12 @@ function ViewContainer({ senators, reps }) {
     }
   }
 
+  const outerContainerStyles = {
+    marginTop: 30
+  }
+
   return (
-    <div>
+    <div style={outerContainerStyles}>
       {senators && reps  ? <>
       <SearchContainer
         setSelectedSen={setSelectedSen}

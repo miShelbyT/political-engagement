@@ -22,12 +22,11 @@ function DropDownSearch({ setSearchTerm, onFormSubmit }) {
     fontFamily: "Lato,'Helvetica Neue',Arial,Helvetica,sans-serif"
   }
 
-  // console.log(options)
-
+  
 
   return (
     <form onSubmit={(e) => onFormSubmit(e, "state")} >
-      <div className="ui fluid search selection dropdown">
+      <div className="search-bar ui segment" style={{ width: 300}}>
         <label>
           <Select
             options={options}
@@ -38,6 +37,7 @@ function DropDownSearch({ setSearchTerm, onFormSubmit }) {
             searchable="true"
             closeOnSelect="true"
             closeOnScroll="true"
+            backspaceDelete="false"
             onChange={(value) => setSearchTerm(value[0].abbreviation)}
             dropdownHeight="400px"
             color="#b31942"

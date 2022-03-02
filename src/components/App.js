@@ -6,7 +6,8 @@ import ViewContainer from './ViewContainer'
 import styled from 'styled-components'
 
 function App() {
-  const [renderSearchButton, setRenderSearchButton] = useState(true)
+  
+  const [showInputFields, renderShowInputFields] = useState(true)
   const [senators, setSenators] = useState([])
   const [reps, setReps] = useState([])
 
@@ -34,10 +35,7 @@ function App() {
 
   return (
     <Page>
-      <Header
-        renderSearchButton={renderSearchButton}
-        setRenderSearchButton={setRenderSearchButton}
-      />
+      <Header/>
       <ViewContainer 
         senators={senators}
         reps={reps}/>

@@ -1,6 +1,6 @@
 
 
-function SearchBar({ searchTerm, setSearchTerm, onFormSubmit }) {
+function SearchBar({ searchTerm, setSearchTerm, onFormSubmit, param, searchBy }) {
   
   // onInputChange = (event) => {
   //   this.setState({ term: event.target.value })
@@ -8,15 +8,14 @@ function SearchBar({ searchTerm, setSearchTerm, onFormSubmit }) {
 
   
   return (
-    <div className="search-bar ui segment">
-      <form className="ui form" onSubmit={(e) => onFormSubmit(e, "last_name")}>
+    <div className="search-bar ui segment" style={{ width: 300}}>
+      <form className="ui form" onSubmit={(e) => onFormSubmit(e, param)}>
         <div className="field">
-          <label>Find My Congress People:</label>
           <input
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search by last name"
+            placeholder={`Search by ${searchBy}`}
           />
           <button
             className="ui button"
