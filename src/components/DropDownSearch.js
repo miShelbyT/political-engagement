@@ -5,12 +5,14 @@ function DropDownSearch({ setSearchTerm, onFormSubmit }) {
   const UsaStates = require('usa-states').UsaStates
   const statesAndTerritories = new UsaStates()
 
-  const options = [...statesAndTerritories.states, {name: 'Puerto Rico', abbreviation: 'PR'}, 
+  const options = [...statesAndTerritories.states, 
   {name: 'American Samoa', abbreviation: 'AS'}, 
   {name: 'Guam', abbreviation: 'GU'}, 
   {name: 'Northern Mariana Islands', abbreviation: 'MP'}, 
-  {name: 'Virgin Islands', abbreviation: 'VI'}
-].sort((a,b) => a.name - b.name)
+  {name: 'Puerto Rico', abbreviation: 'PR'},
+  {name: 'US Virgin Islands', abbreviation: 'VI'}].sort((a,b) => {
+    return a.name <  b.name ? -1 : 1
+  })
 
   const selectStyles = {
     fontSize: 16,
@@ -20,7 +22,7 @@ function DropDownSearch({ setSearchTerm, onFormSubmit }) {
     fontFamily: "Lato,'Helvetica Neue',Arial,Helvetica,sans-serif"
   }
 
-  console.log(options)
+  // console.log(options)
 
 
   return (
