@@ -9,13 +9,14 @@ import flag from '../images/flag.png'
 function SearchContainer({ setSelectedSen, senators, setSelectedRep, reps, selectedSen, selectedRep }) {
 
     const [searchTerm, setSearchTerm] = useState('')
+    const [dropdownSearch, setDropdownSearch] = useState('')
 
-    const onFormSubmit = (event, param) => {
+    const onFormSubmit = (event, param, query) => {
       
       event.preventDefault()
 
-      const senator = senators.filter(sen => sen[param].toLowerCase() === searchTerm.toLowerCase())
-      const representative = reps.filter(rep => rep[param].toLowerCase() === searchTerm.toLowerCase())
+      const senator = senators.filter(sen => sen[param].toLowerCase() === query.toLowerCase())
+      const representative = reps.filter(rep => rep[param].toLowerCase() === query.toLowerCase())
   
       setSelectedSen(senator)
       setSelectedRep(representative)
@@ -34,12 +35,12 @@ function SearchContainer({ setSelectedSen, senators, setSelectedRep, reps, selec
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         onFormSubmit={onFormSubmit}
-        param="last_name"
         searchBy="last name"
       />
       <DropDownSearch 
-        setSearchTerm={setSearchTerm}
+        setDropdownSearch={setDropdownSearch}
         onFormSubmit={onFormSubmit}
+        dropdownSearch={dropdownSearch}
       />
       <SearchBar searchBy="zip code"/>
     </Container>
@@ -52,7 +53,7 @@ const Container = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-image: linear-gradient(rgba(255, 255, 255, 0.52),rgba(0, 0, 0, 0.5)), url(${flag});
   border-radius: 7px;
   padding: 20px;

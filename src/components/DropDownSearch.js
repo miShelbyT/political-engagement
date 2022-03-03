@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 import Select from 'react-dropdown-select'
 
-function DropDownSearch({ setSearchTerm, onFormSubmit }) {
+function DropDownSearch({ setDropdownSearch, onFormSubmit, dropdownSearch }) {
   const UsaStates = require('usa-states').UsaStates
   const statesAndTerritories = new UsaStates()
 
@@ -25,7 +25,7 @@ function DropDownSearch({ setSearchTerm, onFormSubmit }) {
   
 
   return (
-    <form onSubmit={(e) => onFormSubmit(e, "state")} >
+    <form onSubmit={(e) => onFormSubmit(e, "state", dropdownSearch)} >
       <div className="search-bar ui segment" style={{ width: 300}}>
         <label>
           <Select
@@ -38,7 +38,7 @@ function DropDownSearch({ setSearchTerm, onFormSubmit }) {
             closeOnSelect="true"
             closeOnScroll="true"
             backspaceDelete="false"
-            onChange={(value) => setSearchTerm(value[0].abbreviation)}
+            onChange={(value) => setDropdownSearch(value[0].abbreviation)}
             dropdownHeight="400px"
             color="#b31942"
             style={selectStyles}
